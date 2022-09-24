@@ -34,10 +34,8 @@ function sendMessages(form) {
     recipients: recipients.join(','),
   };
 
-  console.log(data);
-
   clearForm(form);
-
+  
   fetch('send-messages', {
     method: 'POST',
     headers: {
@@ -47,9 +45,9 @@ function sendMessages(form) {
   })
     .then((resp) => {
       if (resp.ok) {
-        return resp.json();
+        //return resp.json();
+        throw new Error('Messages Sent');
       }
-
       if (resp.status === 401) {
         throw new Error('Invalid Passcode');
       } else {
@@ -59,6 +57,7 @@ function sendMessages(form) {
       }
     })
     .then((body) => {
+      console.log(body);
       const successCount = body.result.reduce((currentCount, resultItem) => {
         return resultItem.success ? currentCount + 1 : currentCount;
       }, 0);
