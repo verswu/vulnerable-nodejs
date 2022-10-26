@@ -11,7 +11,7 @@
     "dotenv": "^16.0.2",
     "express": "^4.18.1",
     "serve-favicon": "^2.5.0",
-    "twilio": "latest"
+    "twilio": "3.82.2"
   },
   "repository": {
     "type": "git",
